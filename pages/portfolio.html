@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emily Smith - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3 { font-family: 'Merriweather', serif; }
+    .nav-link-active {
+      color: #F97316;
+      font-weight: 600;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content {
+      position: relative;
+      margin: 10% auto;
+      padding: 2rem;
+      width: 90%;
+      max-width: 60rem;
+      animation: slideUp 0.3s ease;
+    }
+    .animate-fade-in { animation: fadeIn 0.5s ease forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .animate-slide-up { animation: slideUp 0.6s ease forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div>
+          <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-orange-500 transition">Emily Smith</a>
+        </div>
+        <div class="hidden sm:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-500 hover:text-orange-500 transition">Home</a>
+          <a href="about.html" class="text-gray-500 hover:text-orange-500 transition">About</a>
+          <a href="portfolio.html" class="nav-link-active">Portfolio</a>
+          <a href="contact.html" class="text-gray-500 hover:text-orange-500 transition">Contact</a>
+        </div>
+        <div class="sm:hidden">
+          <button class="text-gray-900 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="min-h-screen">
+    <section class="text-center py-16">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6">My Creative Work</h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        A collection of my favorite projects showcasing various design disciplines, from brand identity to illustrations.
+      </p>
+    </section>
+
+    <div class="flex flex-wrap justify-center gap-2 mb-12 px-4">
+      <button class="category-btn px-6 py-2 rounded-full bg-orange-500 text-white shadow" data-category="All">All</button>
+      <button class="category-btn px-6 py-2 rounded-full hover:bg-gray-200" data-category="Logo Design">Logo Design</button>
+      <button class="category-btn px-6 py-2 rounded-full hover:bg-gray-200" data-category="Branding">Branding</button>
+      <button class="category-btn px-6 py-2 rounded-full hover:bg-gray-200" data-category="Illustration">Illustration</button>
+    </div>
+
+    <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-7xl mx-auto">
+    </div>
+
+    <section class="text-center mt-20 py-16 bg-orange-50 rounded-3xl max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-4">Like What You See?</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        I'd love to create something unique and beautiful for your brand too.
+      </p>
+      <a href="contact.html" class="bg-orange-500 text-white px-6 py-3 rounded-md shadow hover:bg-orange-600 inline-flex items-center">
+        Let's Work Together <i class="fa fa-arrow-right ml-2"></i>
+      </a>
+    </section>
+  </div>
+  
+  <div id="portfolio-modal" class="modal">
+    <div class="modal-content bg-white rounded-lg shadow-2xl">
+      <div id="modal-body" class="grid md:grid-cols-2 gap-8 items-center">
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-gray-200 mt-20">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-500">&copy; 2024 Emily Smith. All rights reserved.</p>
+      <p class="text-gray-400 text-sm mt-1">Freelance Graphic Designer | Logo Design • Branding • Illustrations</p>
+    </div>
+  </footer>
+
+  <script>
+    const portfolioItems = [
+      {
+        id: 1,
+        title: "Elegant Brand Identity",
+        category: "Logo Design",
+        description: "A sophisticated logo design for a luxury lifestyle brand, featuring clean geometry and premium aesthetics.",
+        image: "assets/portfolio-1.jpg",
+        details: "Created a complete brand identity package including logo variations, color palette, and typography guidelines. The design emphasizes elegance and modernity while maintaining timeless appeal."
+      },
+      {
+        id: 2,
+        title: "Complete Branding Package",
+        category: "Branding",
+        description: "Comprehensive branding solution including business cards, letterhead, and brand guidelines.",
+        image: "assets/portfolio-2.jpg",
+        details: "Developed a cohesive brand identity from concept to completion. This project involved extensive research, multiple design iterations, and final delivery of all brand assets in various formats."
+      },
+      {
+        id: 3,
+        title: "Botanical Illustrations",
+        category: "Illustration",
+        description: "Hand-drawn botanical illustrations with intricate details and organic flowing lines.",
+        image: "assets/portfolio-3.jpg",
+        details: "A series of detailed botanical illustrations created for a wellness brand. Each illustration was hand-drawn and then digitally refined to maintain the organic, authentic feel while ensuring scalability."
+      }
+    ];
+
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const modal = document.getElementById('portfolio-modal');
+    const modalBody = document.getElementById('modal-body');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+
+    function renderItems(filter = 'All') {
+      portfolioGrid.innerHTML = '';
+      const filteredItems = filter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === filter);
+      
+      filteredItems.forEach((item, index) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'portfolio-item animate-fade-in cursor-pointer';
+        itemEl.style.animationDelay = `${index * 0.1}s`;
+        itemEl.dataset.id = item.id;
+        itemEl.innerHTML = `
+          <div class="group relative overflow-hidden rounded-2xl shadow hover:shadow-xl transition-all duration-300">
+            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-semibold text-lg">${item.title}</h3>
+                <p class="text-sm opacity-90">${item.category}</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-medium text-orange-500 bg-orange-100 px-2 py-1 rounded-full">${item.category}</span>
+            <h3 class="font-semibold text-lg mt-2">${item.title}</h3>
+            <p class="text-gray-600 text-sm">${item.description}</p>
+          </div>
+        `;
+        portfolioGrid.appendChild(itemEl);
+      });
+      
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        item.addEventListener('click', () => openModal(item.dataset.id));
+      });
+    }
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        categoryButtons.forEach(b => b.classList.remove('bg-orange-500', 'text-white', 'shadow'));
+        btn.classList.add('bg-orange-500', 'text-white', 'shadow');
+        renderItems(category);
+      });
+    });
+    
+    function openModal(id) {
+      const item = portfolioItems.find(p => p.id == id);
+      if (!item) return;
+
+      modalBody.innerHTML = `
+        <div class="aspect-square overflow-hidden rounded-xl">
+            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover"/>
+        </div>
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold">${item.title}</h2>
+            <div>
+              <span class="text-sm font-medium text-orange-500 bg-orange-100 px-3 py-1 rounded-full">${item.category}</span>
+            </div>
+            <p class="text-gray-600 leading-relaxed">${item.details}</p>
+            <div class="pt-4">
+              <a href="#" class="bg-orange-500 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-orange-600 transition inline-flex items-center">
+                View Full Project <i class="fa fa-external-link-alt ml-2"></i>
+              </a>
+            </div>
+        </div>
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
+            <i class="fa fa-times text-2xl"></i>
+        </button>
+      `;
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+    
+    renderItems();
+  </script>
+</body>
+</html>

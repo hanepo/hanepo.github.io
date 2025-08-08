@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emily Smith - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&family=Inter&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    h1, h2, h3 { font-family: 'Merriweather', serif; }
+    /* Style for the active navigation link */
+    .nav-link-active {
+      color: #F97316; /* Tailwind orange-500 */
+      font-weight: 600;
+    }
+    /* Simple animations */
+    .animate-fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .animate-slide-up { animation: slideUp 0.6s ease forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* Gradient hero background */
+    .bg-gradient-hero { background: linear-gradient(135deg, #f97316, #fb923c); }
+    .shadow-glow { box-shadow: 0 0 20px rgba(249, 115, 22, 0.6); }
+    .bg-gradient-subtle { background: linear-gradient(to right, #fff7ed, #ffedd5); }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div>
+          <a href="index.html" class="text-xl font-bold text-gray-900 hover:text-orange-500 transition">Emily Smith</a>
+        </div>
+        <div class="hidden sm:flex items-center space-x-8">
+          <a href="pages/index.html" class="nav-link-active">Home</a>
+          <a href="pages/about.html" class="text-gray-500 hover:text-orange-500 transition">About</a>
+          <a href="pages/portfolio.html" class="text-gray-500 hover:text-orange-500 transition">Portfolio</a>
+          <a href="pages/contact.html" class="text-gray-500 hover:text-orange-500 transition">Contact</a>
+        </div>
+        <div class="sm:hidden">
+          <button class="text-gray-900 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('assets/hero-bg.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-br from-white/90 to-white/70"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-fade-in">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+          Hi, I'm <span class="bg-gradient-hero text-transparent bg-clip-text">Emily Smith</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          A passionate freelance graphic designer crafting beautiful, meaningful designs 
+          that tell your story and connect with your audience.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <a href="portfolio.html" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md flex items-center">
+            View My Work
+            <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+          <a href="contact.html" class="border border-gray-500 text-gray-700 hover:bg-gray-100 font-medium py-3 px-6 rounded-md">
+            Let's Collaborate
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why Choose My Design Services?</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          I bring a unique blend of creativity, strategy, and personal attention to every project.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center group animate-slide-up" style="animation-delay: 0s;">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-hero rounded-2xl mb-6 group-hover:shadow-glow transition-all duration-300">
+            <i class="fa fa-palette text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Creative Vision</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Transforming ideas into stunning visual stories that captivate and inspire.
+          </p>
+        </div>
+
+        <div class="text-center group animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-hero rounded-2xl mb-6 group-hover:shadow-glow transition-all duration-300">
+            <i class="fa fa-lightbulb text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Strategic Design</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Every design decision is purposeful, balancing aesthetics with functionality.
+          </p>
+        </div>
+
+        <div class="text-center group animate-slide-up" style="animation-delay: 0.4s;">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-hero rounded-2xl mb-6 group-hover:shadow-glow transition-all duration-300">
+            <i class="fa fa-heart text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Personal Touch</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Dedicated to understanding your brand and bringing your unique vision to life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gradient-subtle">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Ready to Bring Your Vision to Life?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        Let's collaborate to create something amazing together. I'd love to hear about your project and discuss how we can make it extraordinary.
+      </p>
+      <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-md flex items-center justify-center mx-auto w-fit">
+        Start Your Project
+        <i class="fa fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-500">&copy; 2024 Emily Smith. All rights reserved.</p>
+      <p class="text-gray-400 text-sm mt-1">Freelance Graphic Designer | Logo Design • Branding • Illustrations</p>
+    </div>
+  </footer>
+
+</body>
+</html>
